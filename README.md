@@ -20,7 +20,7 @@
 ## Table of Contents
 - [Images](#images)
 - [Prerequisites](#prerequisites)
-- [Getting Started](#Getting Started)
+- [Getting Started](#getting started)
 - [Explanation](#explanation)
 - [License](#license)
 - [Some Useful Links](#some-useful-links)
