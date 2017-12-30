@@ -46,7 +46,7 @@ There are a couple ways to download the compression application:
 
 To Run type:
 ```
-$ python3 exeEncode.py
+$ python3 encode.py
 ```
 Or run the .exe directly.
 
