@@ -1,3 +1,5 @@
+# Author: Jacob Hallberg
+# Last Edited: 12/25/2017
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_HuffmanEncode(object):

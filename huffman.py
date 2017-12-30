@@ -1,3 +1,5 @@
+# Author: Jacob Hallberg
+# Last Edited: 12/25/2017
 """
 Arguments: string file
 Return: CodeBook, Huffman Tree
