@@ -18,13 +18,18 @@
 
 
 ## Table of Contents
-
+- [Images](#images)
 - [Prerequisites](#prerequisites)
-- [Installation](#installation)
+- [Getting Started](#Getting Started)
 - [Explanation](#explanation)
-- [Acknowldegements](#acknowledgements)
+- [License](#license)
 - [Some Useful Links](#some-useful-links)
 
+## Images
+
+| Encoding File | Decoding File |
+| ------------- | ------------- |
+| <img src="https://i.imgur.com/aufFEaL.png" width="400" height="500" />| <img src="https://i.imgur.com/fYSnrnl.png" width="400" height="500" />|
 
 ## Prerequisites
 
