@@ -1,5 +1,5 @@
 # Author: Jacob Hallberg
-# Last Edited: 12/25/2017
+# Last Edited: 12/30/2017
 import huffman
 import matplotlib
 import matplotlib.pyplot as plt
@@ -132,6 +132,7 @@ class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
         # Open file using the passed in file_name.
         with open(self.file_name) as stream:
             read_file = stream.read()
+
         # Run the encoding functions from huffman.py.
         self.frequency = huffman.calculate_frequency(read_file)
         self.encoding, self.code_book = huffman.create_encoding(

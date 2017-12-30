@@ -1,5 +1,5 @@
 # Author: Jacob Hallberg
-# Last Edited: 12/25/2017
+# Last Edited: 12/30/2017
 """
 Takes in some text file and calculates the freguency of each character.
 Using the frequency it constructs a min-heap implementation of a Huffamn Tree
@@ -8,14 +8,7 @@ compressed file and a codebook with locations specified by user.
 """
 import heapq
 import json
-
-
-class Tree():
-    # Class Tree is used to create the huffman tree which will be traversed.
-    def __init__(self, parent, left_child=None, right_child=None):
-        self.parent = parent
-        self.left_child = left_child
-        self.right_child = right_child
+from tree import Tree
 
 
 def calculate_frequency(s_file):
@@ -39,8 +32,10 @@ def calculate_frequency(s_file):
 def create_codebook(heap_node):
     codebook = {}
     code = traverse_tree(heap_node, '')
+
     for key, value in code:
         codebook.update({key: value})
+
     return codebook
 
 
@@ -94,12 +89,10 @@ def write_code_book(code_book, file_name):
 def decode_file(code_book_file, file_name):
     symbol, decoded_file, bit_string = "", "", ""
 
-    # Open the binary file and read the entire byte stream.
     with open(code_book_file, 'r') as code:
         code_book = json.load(code)
+
     with open(file_name, 'rb') as byte_stream:
-        # Go through each byte, format it and then append to workable string.
-        # format(_, '08b) means format into binary with 8 bits.
         for byte in byte_stream.read():
             bit_string += format(byte, '08b')
 
@@ -167,21 +160,3 @@ def create_encoding(freq_dic, s_file):
     flipped_code_book.update({'length': len(encoding)})
 
     return encoding, flipped_code_book
-
-# 00011111 00001000
-# 0001111111
-# with open('/home/jacob/Downloads/PythonPractice/Huffman Encoding/sls.txt') as f:
-#     READ_FILE = f.read()
-
-# TEST_STRING = "hellllo"
-# FREQ = calculate_frequency(READ_FILE)
-# ENCODING, CODEBOOK = create_encoding(FREQ, READ_FILE)
-# BINARY_FILE = write_binary_encoding(
-#     ENCODING, "/home/jacob/Downloads/PythonPractice/deep.txt")
-# decode_file(CODEBOOK, BINARY_FILE)
-# write_code_book(CODEBOOK, "/home/jacob/Downloads/PythonPractice/PREP.txt")
-
-
-# print("Frequency Dictionary \n", FREQ)
-# print("CodeBook Dictionary \n", CODEBOOK)
-# print("Encoded Text \n", ENCODING)
