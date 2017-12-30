@@ -55,6 +55,28 @@ Or run the .exe directly.
 A Huffman Coding counts the frequencies of each character and creates binary codes decreasing in length for the characters with higher frequency.
 After encoding the file, a corresponding codebook is needed to decode the file providing space savings and privacy for the user with the codebook.
 
+## Example:
+
+  input_string = "Hello"
+  
+  frequency_dictionary = {'H': 1, 'e': 1, 'l': 2, 'o': 1}
+  
+  Create a min heap priority queue and continue to pop off two of the least frequent nodes until only one element remains in the heap. This last element is the Huffman Tree.
+  
+                                            ('Helo' : 5)
+                                          0/            \1
+                                    ('He': 2)         ('lo': 3)
+                                   0/       \1       /0        \1
+                                 ('H': 1)('e': 1)  ('l': 2)('o': 1)
+  
+  Afterwords create a coding by following the above tree and assign zeros to each left path and ones to each right path until a leaf node is found.
+  
+  coding = {'H': 00, 'e': 01, 'l': 10, '0': 11}
+  
+  Use the coding to encode each character in the original string.
+  
+  encoded_string = "0001101011"
+
 For more information, please refer to the [Wikipedia Page](https://en.wikipedia.org/wiki/Huffman_coding).
 
 ## License
