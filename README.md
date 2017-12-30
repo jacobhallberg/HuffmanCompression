@@ -69,7 +69,7 @@ After encoding the file, a corresponding codebook is needed to decode the file p
                                    0/       \1       /0        \1
                                  ('H': 1)('e': 1)  ('l': 2)('o': 1)
   
-  Afterwords create a coding by following the above tree and assign zeros to each left path and ones to each right path until a leaf node is found.
+  Afterwords create a coding by following the above tree and assigning zeros to each left path and ones to each right path until a leaf node is found. Concat these zeros and ones for each character to create a binary encoding.
   
   coding = {'H': 00, 'e': 01, 'l': 10, '0': 11}
   
