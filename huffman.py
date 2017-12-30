@@ -1,12 +1,10 @@
 # Author: Jacob Hallberg
 # Last Edited: 12/25/2017
 """
-Arguments: string file
-Return: CodeBook, Huffman Tree
-
 Takes in some text file and calculates the freguency of each character.
-Using the frequency it constructs a min-heap which wilheap_nodebe used to construct
-the Huffman Tree.
+Using the frequency it constructs a min-heap implementation of a Huffamn Tree
+wich will be used to create a Huffman Coding. After encoding, returns a 
+compressed file and a codebook with locations specified by user.
 """
 import heapq
 import json
@@ -98,7 +96,7 @@ def decode_file(code_book_file, file_name):
 
     # Open the binary file and read the entire byte stream.
     with open(code_book_file, 'r') as code:
-        code_book = data = json.load(code)
+        code_book = json.load(code)
     with open(file_name, 'rb') as byte_stream:
         # Go through each byte, format it and then append to workable string.
         # format(_, '08b) means format into binary with 8 bits.
