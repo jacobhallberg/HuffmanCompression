@@ -1,20 +1,18 @@
 # Author: Jacob Hallberg
 # Last Edited: 12/25/2017
+import huffman
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
 from pathlib import Path
 from math import log2
 from encode_UI import Ui_HuffmanEncode
-import huffman
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMenu, QVBoxLayout, QSizePolicy, QMessageBox, QWidget, QPushButton, QFileDialog, QTabWidget
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import pyqtSlot
-import matplotlib
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import numpy as np
 from PyQt5.QtCore import (QLineF, QPointF, QRectF, Qt, QTimer)
+matplotlib.rcParams.update({'axes.titlesize': 32})
 
 
 class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
@@ -50,7 +48,6 @@ class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
 
         elif self.saveable == 1:
             self.saveFileDialog('write_binary')
-            self.saveable += 1
 
         else:
             self.saveFileDialog('write_code_book')
@@ -66,6 +63,7 @@ class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
             "All Files (*);;Python Files (*.py);;Text Files (*.txt)", options=options)
 
         if self.file_name:
+            self.saveable += 1
             self.uploaded = True
 
     def openFileNamesDialog(self):
@@ -73,7 +71,7 @@ class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog
             files, _ = QFileDialog.getOpenFileNames(
-                self, "QFileDialog.getOpenFileNames()", "", "All Files (*);;Binary Files (*.bin)", options=options)
+                self, "First select the encoding and then the compression.", "", "All Files (*);;Binary Files (*.bin)", options=options)
             if len(files) == 2:
                 decoded_file = huffman.decode_file(files[1], files[0])
                 self.textBrowser.setText(decoded_file)
@@ -89,12 +87,13 @@ class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         sfile_name, _ = QFileDialog.getSaveFileName(
-            self, "QFileDialog.getSaveFileName()", "", "All Files (*);;Binary Files (*.bin)", options=options)
+            self, "Type in file name to save compression.", "", "All Files (*);;Binary Files (*.bin)", options=options)
 
         # Operation string determines function call.
         if sfile_name and operation == 'write_binary':
             huffman.write_binary_encoding(self.encoding, sfile_name)
             self.UploadFile.setText("Click again to save Code Book")
+            self.saveable += 1
 
         elif sfile_name and operation == 'write_code_book':
             huffman.write_code_book(self.code_book, sfile_name)
@@ -168,7 +167,6 @@ class Huffman_Encode(QMainWindow, Ui_HuffmanEncode):
 
 
 class PlotCanvas(FigureCanvas):
-
     def __init__(self, parent=None, width=5, height=4, dpi=100, hi=None):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
@@ -183,7 +181,6 @@ class PlotCanvas(FigureCanvas):
 
     def plot(self, size_l):
         # Increase font size beacuse of resolution.
-        matplotlib.rcParams.update({'font.size': 34})
         x_data = ["Original File", "Our Implementation", "Theoretical Limit"]
         y_data = size_l
 
@@ -193,6 +190,8 @@ class PlotCanvas(FigureCanvas):
         # axes.legend(('r','g','b'), ('Original File', 'My Implementation', 'Thoeretical Limit'))
         # red_patch = mpatches.Patch(color='red', label='The red data')
         # axes.legend(handles=[red_patch])
+        for i, v in enumerate(size_l):
+            axes.text(i - .1, v + 35, str(v), color='red', fontweight='bold')
         axes.set_ylabel("Size (bits)", fontsize=18)
         axes.set_xlabel("Compression Type", fontsize=18)
         self.draw()

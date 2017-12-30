@@ -68,7 +68,7 @@ def traverse_tree(heap_node, char_seed):
 def write_binary_encoding(encoding, file_name):
     # As we need to write to the binary file in bytes, we must first
     #   check for left over bits that don't form a byte and concat
-    #   '0's to them to form a byte.
+    #   '0's to them until they form a byte.
 
     # leftover_bits are bits that can't form a byte.
     # Example:
