@@ -61,7 +61,7 @@ After encoding the file, a corresponding codebook is needed to decode the file p
   
   frequency_dictionary = {'H': 1, 'e': 1, 'l': 2, 'o': 1}
   
-  Create a min heap priority queue and continue to pop off two of the least frequent nodes until only one element remains in the heap. This last element is the Huffman Tree.
+  Create a min heap priority queue and continue to pop off two of the least frequent nodes, conjoin the two nodes and insert them back into the priority queue until only one element remains in the heap. This last element is the Huffman Tree.
   
                                             ('Helo' : 5)
                                           0/            \1
