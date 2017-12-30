@@ -29,7 +29,7 @@
 
 | Encoding File | Decoding File |
 | ------------- | ------------- |
-| <img src="https://i.imgur.com/aufFEaL.png" width="400" height="500" />| <img src="https://i.imgur.com/fYSnrnl.png" width="400" height="500" />|
+| <img src="https://i.imgur.com/aufFEaL.png" width="500" height="500" />| <img src="https://i.imgur.com/fYSnrnl.png" width="500" height="500" />|
 
 ## Prerequisites
 
