@@ -35,8 +35,8 @@ Must have Python3 installed or the ability to run .exe .
 Operating Systems: Windows, Linux, Mac
 
 
-There are a couple ways to download the calculator:
-- [Download the zip](https://github.com/jacobhallberg/Python-GUI-Calculator/archive/master.zip)
+There are a couple ways to download the compression application:
+- [Download the zip](https://github.com/jacobhallberg/HuffmanCompression/archive/master.zip)
 - Clone the repo: `git clone https://github.com/jacobhallberg/HuffmanCompression.git` 
 
 To Run type:
