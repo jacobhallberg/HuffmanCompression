@@ -59,3 +59,6 @@ MIT License - see the [LICENSE](https://github.com/jacobhallberg/HuffmanCompress
 
 - **Theoretical Encoding Limit:** https://en.wikipedia.org/wiki/Entropy_(information_theory)
 - **Huffman Encoding Algorithm:** https://www.geeksforgeeks.org/greedy-algorithms-set-3-huffman-coding/
+
+Copyright (c) 2017 Jacob Hallberg
+
