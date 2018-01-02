@@ -1,5 +1,11 @@
 
-<h1 align="center">Huffman Compression</h1>
+<h1 align="center">Huffman Compression 
+
+[![Build Status](https://travis-ci.org/jacobhallberg/HuffmanCompression.svg?branch=master)](https://travis-ci.org/jacobhallberg/HuffmanCompression)
+
+</h1> 
+
+
 
 <p align="center">A quick and easy way to compress your files.</p>
 
