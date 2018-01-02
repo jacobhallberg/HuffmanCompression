@@ -32,7 +32,7 @@ def calculate_frequency(s_file):
 def create_codebook(heap_node):
     codebook = {}
     code = traverse_tree(heap_node, '')
-
+    
     for key, value in code:
         codebook.update({key: value})
 
