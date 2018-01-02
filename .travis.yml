@@ -1,5 +1,6 @@
 language: python
 python:
-	- "3.5"
+- "3.5"
 script:
-	- python huffman_test.py
+- cd tests
+- python huffman_test.py
