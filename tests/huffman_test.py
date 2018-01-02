@@ -15,6 +15,5 @@ class TestHuffmanFunctions(unittest.TestCase):
         self.assertEqual(huffman.calculate_frequency(test_string2), result2)
 
 
-
 if __name__ == '__main__':
     unittest.main()
