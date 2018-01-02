@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/jacob/Downloads/PythonPractice/HuffmanEncoding')
+sys.path.append('../')
 import unittest
 import huffman
 
